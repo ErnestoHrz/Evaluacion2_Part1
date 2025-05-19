@@ -40,7 +40,8 @@ function addStudentToTable(student) {
         <td>${student.name}</td>
         <td>${student.lastName}</td>
         <td>${student.grade}</td>
-        <td><button class="delete-btn">Eliminar</button> </td>`;
+        <td><button class="delete-btn">♻</button> </td>
+        <td><button class="delete-btn">✎</button> </td>`;
 
         row.querySelector(".delete-btn").addEventListener("click",function(){
             deleteEstudiante(student,row);
