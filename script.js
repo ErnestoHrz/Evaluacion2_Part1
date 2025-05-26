@@ -3,6 +3,10 @@ let editingIndex = null;
 
 const tableBody = document.querySelector("#studentsTable tbody");
 const averageDiv = document.getElementById("average");
+const totalStudentsSpan = document.getElementById("totalStudents");
+const passedStudentsSpan = document.getElementById("passedStudents");
+const failedStudentsSpan = document.getElementById("failedStudents");
+
 
 document.getElementById("studentForm").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -96,4 +100,35 @@ function updateAverage() {
     const sum = students.reduce((acc, curr) => acc + curr.grade, 0);
     const average = (sum / students.length).toFixed(1);
     averageDiv.textContent = `Promedio General del Curso: ${average}`;
+}
+function updateAverage() {
+    if (students.length === 0) {
+        averageDiv.textContent = "Promedio General del Curso: N/A";
+        updateStats();
+        function updateStats() {
+            const total = students.length;
+            const passed = students.filter(s => s.grade >= 4).length;
+            const failed = students.filter(s => s.grade < 4).length;
+        
+            totalStudentsSpan.textContent = total;
+            passedStudentsSpan.textContent = passed;
+            failedStudentsSpan.textContent = failed;
+        }
+            
+        return;
+    }
+    const sum = students.reduce((acc, curr) => acc + curr.grade, 0);
+    const average = (sum / students.length).toFixed(1);
+    averageDiv.textContent = `Promedio General del Curso: ${average}`;
+    updateStats();
+    function updateStats() {
+        const total = students.length;
+        const passed = students.filter(s => s.grade >= 4).length;
+        const failed = students.filter(s => s.grade < 4).length;
+    
+        totalStudentsSpan.textContent = total;
+        passedStudentsSpan.textContent = passed;
+        failedStudentsSpan.textContent = failed;
+    }
+        
 }

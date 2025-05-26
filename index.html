@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
     <h1>📚Calificaciones de Curso📚</h1>
     <div id="average">Promedio General del Curso: N/A</div>
-    
+    <div id="stats">
+        <p>Total de Estudiantes: <span id="totalStudents">0</span></p>
+        <p>Aprobados: <span id="passedStudents">0</span></p>
+        <p>Reprobados: <span id="failedStudents">0</span></p>
+      </div>
+      
     <form id="studentForm">
+                
         <div class="form-group">
             <label for="name">Nombre:</label>
             <input type="text" id="name" required>
+            
         </div>
+        
+        
         <div class="form-group">
             <label for="lastName">Apellido:</label>
             <input type="text" id="lastName" required>
